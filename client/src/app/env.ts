@@ -1,5 +1,5 @@
-import { decodeEnv, buildTrustificationEnv } from "@trustification-ui/common";
+import { decodeEnv, buildTrustiEnv } from "@trusti-ui/common";
 
-export const ENV = buildTrustificationEnv(decodeEnv(window._env));
+export const ENV = buildTrustiEnv(decodeEnv(window._env));
 
 export default ENV;

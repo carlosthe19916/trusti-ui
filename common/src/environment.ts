@@ -1,15 +1,15 @@
-/** Define process.env to contain `TrustificationEnvType` */
+/** Define process.env to contain `TrustiEnvType` */
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace NodeJS {
-    interface ProcessEnv extends Partial<Readonly<TrustificationEnvType>> {}
+    interface ProcessEnv extends Partial<Readonly<TrustiEnvType>> {}
   }
 }
 
 /**
- * The set of environment variables used by `@trustification-ui` packages.
+ * The set of environment variables used by `@trusti-ui` packages.
  */
-export type TrustificationEnvType = {
+export type TrustiEnvType = {
   NODE_ENV: "development" | "production" | "test";
   VERSION: string;
 
@@ -48,15 +48,15 @@ export type TrustificationEnvType = {
 };
 
 /**
- * Keys in `TrustificationEnv` that are only used on the server and therefore do not
+ * Keys in `TrustiEnv` that are only used on the server and therefore do not
  * need to be sent to the client.
  */
 export const SERVER_ENV_KEYS = ["PORT", "TRUSTIFICATION_HUB_URL", "BRANDING"];
 
 /**
- * Create a `TrustificationEnv` from a partial `TrustificationEnv` with a set of default values.
+ * Create a `TrustiEnv` from a partial `TrustiEnv` with a set of default values.
  */
-export const buildTrustificationEnv = ({
+export const buildTrustiEnv = ({
   NODE_ENV = "production",
   PORT,
   VERSION = "99.0.0",
@@ -73,7 +73,7 @@ export const buildTrustificationEnv = ({
 
   ANALYTICS_ENABLED = "false",
   ANALYTICS_WRITE_KEY,
-}: Partial<TrustificationEnvType> = {}): TrustificationEnvType => ({
+}: Partial<TrustiEnvType> = {}): TrustiEnvType => ({
   NODE_ENV,
   PORT,
   VERSION,
@@ -93,11 +93,11 @@ export const buildTrustificationEnv = ({
 });
 
 /**
- * Default values for `TrustificationEnvType`.
+ * Default values for `TrustiEnvType`.
  */
-export const TRUSTIFICATION_ENV_DEFAULTS = buildTrustificationEnv();
+export const TRUSTIFICATION_ENV_DEFAULTS = buildTrustiEnv();
 
 /**
- * Current `@trustification-ui` environment configurations from `process.env`.
+ * Current `@trusti-ui` environment configurations from `process.env`.
  */
-export const TRUSTIFICATION_ENV = buildTrustificationEnv(process.env);
+export const TRUSTIFICATION_ENV = buildTrustiEnv(process.env);

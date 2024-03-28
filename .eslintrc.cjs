@@ -54,7 +54,7 @@ module.exports = {
     "no-extra-boolean-cast": "warn",
     "prefer-const": "warn",
 
-    // Allow the "cy-data" property for trustification-ui-test (but should really be "data-cy" w/o this rule)
+    // Allow the "cy-data" property for trusti-ui-test (but should really be "data-cy" w/o this rule)
     "react/no-unknown-property": ["error", { ignore: ["cy-data"] }],
 
     "@tanstack/query/exhaustive-deps": "error",

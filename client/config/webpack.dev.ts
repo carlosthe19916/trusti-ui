@@ -15,7 +15,7 @@ import {
   proxyMap,
   brandingStrings,
   brandingAssetPath,
-} from "@trustification-ui/common";
+} from "@trusti-ui/common";
 import { stylePaths } from "./stylePaths";
 import commonWebpackConfiguration from "./webpack.common";
 
@@ -114,8 +114,8 @@ const config: Configuration = mergeWithRules({
   ],
 
   watchOptions: {
-    // ignore watching everything except @trustification-ui packages
-    ignored: /node_modules\/(?!@trustification-ui\/)/,
+    // ignore watching everything except @trusti-ui packages
+    ignored: /node_modules\/(?!@trusti-ui\/)/,
   },
 } as Configuration);
 export default config;

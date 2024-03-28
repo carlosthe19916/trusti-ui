@@ -17,16 +17,16 @@ USER 1001
 
 LABEL name="trustify/trustify-ui" \
       description="Trustify - User Interface" \
-      help="For more information visit https://trustification.github.io/" \
+      help="For more information visit https://trusti.github.io/" \
       license="Apache License 2.0" \
       maintainer="carlosthe19916@gmail.com" \
       summary="Trustify - User Interface" \
-      url="https://ghcr.io/trustification/trustify-ui" \
-      usage="podman run -p 80 -v trustification/trustify-ui:latest" \
+      url="https://ghcr.io/trusti/trustify-ui" \
+      usage="podman run -p 80 -v trusti/trustify-ui:latest" \
       io.k8s.display-name="trustify-ui" \
       io.k8s.description="Trustify - User Interface" \
       io.openshift.expose-services="80:http" \
-      io.openshift.tags="operator,trustification,trustify,ui,nodejs20" \
+      io.openshift.tags="operator,trusti,trustify,ui,nodejs20" \
       io.openshift.min-cpu="100m" \
       io.openshift.min-memory="350Mi"
 

@@ -1,13 +1,13 @@
 {
   "application": {
-    "title": "Trustification",
-    "name": "Trustification UI",
-    "description": "Trustification UI"
+    "title": "Trusti",
+    "name": "Trusti UI",
+    "description": "Trusti UI"
   },
   "about": {
-    "displayName": "Trustification",
+    "displayName": "Trusti",
     "imageSrc": "<%= brandingRoot %>/images/masthead-logo.svg",
-    "documentationUrl": "https://trustification.io/"
+    "documentationUrl": "https://trusti.io/"
   },
   "masthead": {
     "leftBrand": {
