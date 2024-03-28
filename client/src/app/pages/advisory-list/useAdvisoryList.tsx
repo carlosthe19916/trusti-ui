@@ -33,6 +33,7 @@ export const useAdvisoryList = () => {
     persistenceKeyPrefix: TablePersistenceKeyPrefixes.advisories,
     columnNames: {
       id: "ID",
+      identifier: "Identifier",
       title: "Title",
       severity: "Aggregated severity",
       revisionDate: "Revision",
@@ -110,6 +111,7 @@ export const useAdvisoryList = () => {
         <Thead>
           <Tr isHeaderRow>
             <Th columnKey="id" />
+            <Th columnKey="identifier" />
             <Th columnKey="title" />
             <Th columnKey="severity" />
             <Th columnKey="revisionDate" />
@@ -127,20 +129,23 @@ export const useAdvisoryList = () => {
             return (
               <Tbody key={item.id}>
                 <Tr item={item} rowIndex={rowIndex}>
-                  <Td width={15} columnKey="id">
+                  <Td columnKey="id">
                     <NavLink to={`/advisories/${item.id}`}>{item.id}</NavLink>
                   </Td>
+                  <Td width={10} modifier="truncate" columnKey="identifier">
+                    {item.identifier}
+                  </Td>
                   <Td width={40} modifier="truncate" columnKey="title">
-                    {item.metadata.title}
+                    {item.title}
                   </Td>
                   <Td width={10} columnKey="severity">
-                    <SeverityShieldAndText value={item.aggregated_severity} />
+                    <SeverityShieldAndText value={item.severity} />
                   </Td>
                   <Td width={10} modifier="truncate" columnKey="revisionDate">
-                    {dayjs(item.revision_date).format(RENDER_DATE_FORMAT)}
+                    {dayjs(item.releaseDate).format(RENDER_DATE_FORMAT)}
                   </Td>
                   <Td width={15} columnKey="cves">
-                    <CVEGalleryCount cves={item.cves} />
+                    {/* <CVEGalleryCount cves={item.cves} /> */}
                   </Td>
                   <Td width={10} columnKey="download">
                     <Button

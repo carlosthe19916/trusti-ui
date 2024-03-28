@@ -68,10 +68,11 @@ export interface SBOMBase {
 
 export interface AdvisoryBase {
   id: string;
-  aggregated_severity: Severity;
-  revision_date: string;
+  identifier: string;
+  severity: Severity;
+  releaseDate: string;
+  title: string;
   metadata: {
-    title: string;
     category: string;
     publisher: {
       name: string;

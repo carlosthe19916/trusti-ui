@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 import { serializeRequestParamsForHub } from "@app/hooks/table-controls";
 import {
@@ -55,6 +55,17 @@ export const downloadAdvisoryById = (id: number | string) => {
   return axios.get<string>(`${ADVISORIES}/${id}/source`, {
     responseType: "arraybuffer",
     headers: { Accept: "text/plain", responseType: "blob" },
+  });
+};
+
+export const uploadAdvisory = (
+  formData: FormData,
+  config?: AxiosRequestConfig
+) => {
+  const file = formData.get("file") as File;
+  return file.text().then((text) => {
+    const json = JSON.parse(text);
+    return axios.post<Advisory>(`${ADVISORIES}`, json, config);
   });
 };
 
