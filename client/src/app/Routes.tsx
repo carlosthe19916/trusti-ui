@@ -13,6 +13,8 @@ const PackageDetails = lazy(() => import("./pages/package-details"));
 const SBOMList = lazy(() => import("./pages/sbom-list"));
 const SBOMDetails = lazy(() => import("./pages/sbom-details"));
 
+const SourceList = lazy(() => import("./pages/source-list"));
+
 export enum PathParam {
   ADVISORY_ID = "advisoryId",
   CVE_ID = "cveId",
@@ -43,6 +45,8 @@ export const AppRoutes = () => {
       path: `/sboms/:${PathParam.SBOM_ID}`,
       element: <SBOMDetails />,
     },
+
+    { path: "/sources", element: <SourceList /> },
   ]);
 
   return (

@@ -42,7 +42,7 @@ export const CveGallery: React.FC<CVEGalleryProps> = ({ severities }) => {
                 >
                   <FlexItem>
                     <SeverityShieldAndText
-                      value={severity as Severity}
+                      value={severity.toLowerCase() as Severity}
                       hideLabel
                     />
                   </FlexItem>

@@ -110,7 +110,7 @@ export const UploadFilesDrawer: React.FC<IUploadFilesDrawerProps> = ({
       header={
         <TextContent>
           <Title headingLevel="h2" size="lg" className={spacing.mtXs}>
-            Upload XML (UBL) files
+            Upload files
           </Title>
         </TextContent>
       }

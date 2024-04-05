@@ -8,6 +8,9 @@ import {
   HubPaginatedResult,
   HubRequestParams,
   Package,
+  Source,
+  New,
+  Task,
 } from "./models";
 
 const HUB = "/hub";
@@ -16,6 +19,9 @@ export const ADVISORIES = HUB + "/advisories";
 export const CVES = HUB + "/cves";
 export const SBOMS = HUB + "/sboms";
 export const PACKAGES = HUB + "/packages";
+
+export const SOURCES = HUB + "/sources";
+export const TASKS = HUB + "/tasks";
 
 export const getHubPaginatedResult = <T>(
   url: string,
@@ -32,6 +38,34 @@ export const getHubPaginatedResult = <T>(
         : data.length,
       params,
     }));
+
+//
+export const getSources = () => {
+  return axios.get<Source[]>(`${SOURCES}`).then((response) => response.data);
+};
+
+export const getSourceById = (id: number | string) => {
+  return axios
+    .get<Source>(`${SOURCES}/${id}`)
+    .then((response) => response.data);
+};
+
+export const createSource = (obj: New<Source>) =>
+  axios.post<Source>(`${SOURCES}`, obj);
+
+export const updateSource = (obj: Source) =>
+  axios.put<Source>(`${SOURCES}/${obj.id}`, obj);
+
+export const deleteSourceById = (id: number | string) =>
+  axios.delete<void>(`${SOURCES}/${id}`);
+
+//
+
+export const createTask = (obj: Pick<Task, "source">) =>
+  axios.post<Task>(TASKS, obj);
+
+export const getTasks = () =>
+  axios.get<Task[]>(TASKS).then((response) => response.data);
 
 //
 

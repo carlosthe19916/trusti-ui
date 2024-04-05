@@ -33,6 +33,41 @@ export interface HubPaginatedResult<T> {
   params: HubRequestParams;
 }
 
+// Source
+
+export interface Source {
+  id: number;
+  type: "Http" | "Git";
+  url: string;
+  gitDetails?: {
+    ref?: string;
+    workingDirectory?: string;
+  };
+}
+
+export type TaskState =
+  | "not supported"
+  | "Canceled"
+  | "Created"
+  | "Succeeded"
+  | "Failed"
+  | "Running"
+  | "No task"
+  | "Ready"
+  | "Pending"
+  | "Postponed";
+
+export interface Task {
+  id: number;
+  name: string;
+  state: TaskState;
+  source: Source;
+  createTime?: String;
+  started?: String;
+  terminated?: String;
+  error?: String;
+}
+
 // Base
 
 export interface CVEBase {

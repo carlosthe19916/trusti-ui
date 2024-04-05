@@ -24,9 +24,11 @@ export const SeverityShieldAndText: React.FC<SeverityShieldAndTextProps> = ({
       flexWrap={{ default: "nowrap" }}
       style={{ whiteSpace: "nowrap" }}
     >
-      <FlexItem>
-        <ShieldIcon color={severityProps.shieldIconColor.value} />
-      </FlexItem>
+      {severityProps && (
+        <FlexItem>
+          <ShieldIcon color={severityProps.shieldIconColor.value} />
+        </FlexItem>
+      )}
       {!hideLabel && (
         <FlexItem>{value.charAt(0).toUpperCase() + value.slice(1)}</FlexItem>
       )}
